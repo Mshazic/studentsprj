@@ -5,6 +5,14 @@
 }
 @model studentPrj.Models.Entities.Student;
 <h1>Update Student</h1>
+
+@if (Model is null)
+    {
+        <p>Student Not Found with that Id</p>
+    }
+
+else (Model is not null){ 
+    
 <form action="/" method="post">
 
     <div class="mt-3">
@@ -39,3 +47,4 @@
     </div>
 
 </form>
+    }
