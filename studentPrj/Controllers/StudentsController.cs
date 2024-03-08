@@ -81,11 +81,11 @@ namespace studentPrj.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(Student viewModel)
         {
-            var student = await dbContext.Students.FindAsync(viewModel.Id);
+            var student = await dbContext.Students.AsNoTracking().FirstOrDefaultAsync(x => x.Id == viewModel.Id);
             if (student is not null)
             {
                 dbContext.Students.Remove(viewModel);
-                await dbContext.SaveChanges();
+                await dbContext.SaveChangesAsync();
             }
             return RedirectToAction("List", "students");
 
