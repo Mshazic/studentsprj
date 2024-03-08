@@ -64,7 +64,18 @@ namespace studentPrj.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Student viewModel)
         {
+            var student = await dbContext.Students.FindAsync(viewModel.Id);
+            if (student is not null)
+            {
+                student.Name = viewModel.Name;
+                student.Email = viewModel.Name;
+                student.Phone = viewModel.Phone;
+                student.Subscribe = viewModel.Subscribe;
 
+                await dbContext.SaveChangesAsync();
+            }
+
+            return RedirectToAction("List", "students");
         }
     }
 
