@@ -77,6 +77,19 @@ namespace studentPrj.Controllers
 
             return RedirectToAction("List", "students");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(Student viewModel)
+        {
+            var student = await dbContext.Students.FindAsync(viewModel.Id);
+            if (student is not null)
+            {
+                dbContext.Students.Remove(viewModel);
+                await dbContext.SaveChanges();
+            }
+            return RedirectToAction("List", "students");
+
+        }
     }
 
 
