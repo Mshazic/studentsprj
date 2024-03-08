@@ -16,9 +16,11 @@
   <ItemGroup>
     <None Remove="Data\" />
     <None Remove="Models\Entities\" />
+    <None Remove="Views\Students\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Models\Entities\" />
+    <Folder Include="Views\Students\" />
   </ItemGroup>
 </Project>
