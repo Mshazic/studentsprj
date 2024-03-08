@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using studentPrj.Data;
 using studentPrj.Models;
 using studentPrj.Models.Entities;
@@ -45,8 +46,26 @@ namespace studentPrj.Controllers
             return View();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> List()
+        {
+            var students = await dbContext.Students.ToListAsync();
+            return View(students);
+        }
 
-       
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(Guid id)
+        {
+           var student = await dbContext.Students.FindAsync(id);
+            return (student);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Student viewModel)
+        {
+
+        }
     }
 
 
