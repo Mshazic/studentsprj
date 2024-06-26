@@ -1,9 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@model studentPrj.Models.Entities.Student;
+﻿@model studentPrj.Models.Entities.Student;
 <h1>Update Student</h1>
 
 @if (Model is null)
@@ -11,7 +6,6 @@
         <p>Student Not Found with that Id</p>
     }
 
-else (Model is not null){ 
     
 <form action="/" method="post">
 
@@ -50,4 +44,4 @@ else (Model is not null){
                 asp-action="Delete" asp-controller="Students">Delete</button>
     </div>
 </form>
-    }
+    

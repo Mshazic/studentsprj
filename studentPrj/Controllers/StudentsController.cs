@@ -58,7 +58,7 @@ namespace studentPrj.Controllers
         public async Task<IActionResult> Edit(Guid id)
         {
            var student = await dbContext.Students.FindAsync(id);
-            return (student);
+            return View(student);
         }
 
         [HttpPost]
